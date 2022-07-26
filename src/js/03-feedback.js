@@ -6,10 +6,15 @@ const textareaInput = document.querySelector(`textarea`);
 
 form.addEventListener(`input`, throttle(onFormInput, 500));
 form.addEventListener(`submit`, onFormSubmit);
-currentInputValues();
-let objValues = JSON.parse(localStorage.getItem('feedback-form-state'))
+if (localStorage.getItem('feedback-form-state')) {
+  currentInputValues();
+}
+const objValues = JSON.parse(localStorage.getItem('feedback-form-state'));
+
 
 function onFormInput(event) {
+  
+  
   objValues[event.target.name] = event.target.value;
   // const { elements: { email, message } } = event.currentTarget
 
@@ -33,7 +38,7 @@ function currentInputValues() {
 
   if (savesData) {
     const { email, message } = savesData;
-    emailInput.value = email;
-    textareaInput.value = message;
+    emailInput.value = email? email: ``;
+    textareaInput.value = message? message: ``;
   }
 }
