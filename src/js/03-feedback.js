@@ -9,7 +9,7 @@ form.addEventListener(`submit`, onFormSubmit);
 if (localStorage.getItem('feedback-form-state')) {
   currentInputValues();
 }
-objValues = localStorage.getItem('feedback-form-state') ? JSON.parse(localStorage.getItem('feedback-form-state')):{};
+let objValues = localStorage.getItem('feedback-form-state') ? JSON.parse(localStorage.getItem('feedback-form-state')):{};
 
 
 function onFormInput(event) {
