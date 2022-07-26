@@ -7,7 +7,8 @@ const textareaInput = document.querySelector(`textarea`);
 form.addEventListener(`input`, throttle(onFormInput, 500));
 form.addEventListener(`submit`, onFormSubmit);
 currentInputValues();
-let objValues = {};
+let objValues = JSON.parse(localStorage.getItem('feedback-form-state'))
+
 function onFormInput(event) {
   objValues[event.target.name] = event.target.value;
   // const { elements: { email, message } } = event.currentTarget
